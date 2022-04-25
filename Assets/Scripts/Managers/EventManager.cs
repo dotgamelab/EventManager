@@ -325,7 +325,7 @@ public class EventManager : Singleton<EventManager>
     }
 
     /// <summary>
-    /// Calls the IEnumerator functions that you want to run by event system
+    /// Calls the IEnumerator Coroutine that you want to run by event system
     /// </summary>
     public void SendMessage_StartCoroutine(Component targetComponent, string functionName, object data) // invoke IEnumerator with 1 data prarameter
     {
