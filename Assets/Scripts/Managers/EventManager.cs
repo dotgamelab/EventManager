@@ -6,7 +6,6 @@ using UnityEngine;
 public class  EventManager : Singleton<EventManager>
 {
 
-   
     //-------------- custom events ---------------------
 
     /// <summary>
@@ -56,7 +55,9 @@ public class  EventManager : Singleton<EventManager>
             {
                 Type thisType = del.Target.GetType();
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, CallingConventions.Any,
+                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
      new Type[0], null);
                 theMethod?.Invoke(del.Target, null);
             }
@@ -78,7 +79,9 @@ public class  EventManager : Singleton<EventManager>
             {
                 Type thisType = del.Target.GetType();
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, CallingConventions.Any,
+                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
                     new Type[] { typeof(object) }, null);
 
 
@@ -102,7 +105,9 @@ public class  EventManager : Singleton<EventManager>
             {
                 Type thisType = d.Target.GetType();
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, CallingConventions.Any,
+                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
                   new Type[] { typeof(object), typeof(object) }, null);
 
                 theMethod?.Invoke(d.Target, new object[] { data1, data2 });
@@ -125,7 +130,9 @@ public class  EventManager : Singleton<EventManager>
             {
                 Type thisType = d.Target.GetType();
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, CallingConventions.Any,
+                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
                   new Type[] { typeof(object), typeof(object), typeof(object) }, null);
 
                 theMethod?.Invoke(d.Target, new object[] { data1, data2, data3 });
@@ -148,7 +155,9 @@ public class  EventManager : Singleton<EventManager>
             {
                 Type thisType = del.Target.GetType();
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, CallingConventions.Any,
+                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
                  new Type[0], null);
 
                 StartCoroutine((IEnumerator)theMethod?.Invoke(del.Target, null));
@@ -171,7 +180,9 @@ public class  EventManager : Singleton<EventManager>
             {
                 Type thisType = del.Target.GetType();
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance, null, CallingConventions.Any,
+                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
                 new Type[] { typeof(object) }, null);
 
                 StartCoroutine((IEnumerator)theMethod?.Invoke(del.Target, new object[] { data }));
