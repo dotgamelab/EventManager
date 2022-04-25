@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Collections;
 using UnityEngine;
 
-public class  EventManager : Singleton<EventManager>
+public class EventManager : Singleton<EventManager>
 {
 
     //-------------- custom events ---------------------
@@ -50,15 +50,13 @@ public class  EventManager : Singleton<EventManager>
 
         foreach (Delegate del in AddToListener_0_Param.GetInvocationList())
         {
-
             if (del.Method.Name == functionName)
             {
                 Type thisType = del.Target.GetType();
 
                 BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-     new Type[0], null);
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
                 theMethod?.Invoke(del.Target, null);
             }
         }
@@ -81,9 +79,7 @@ public class  EventManager : Singleton<EventManager>
 
                 BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-                    new Type[] { typeof(object) }, null);
-
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[] { typeof(object) }, null);
 
                 theMethod?.Invoke(del.Target, new object[] { data });
             }
@@ -107,8 +103,7 @@ public class  EventManager : Singleton<EventManager>
 
                 BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-                  new Type[] { typeof(object), typeof(object) }, null);
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[] { typeof(object), typeof(object) }, null);
 
                 theMethod?.Invoke(d.Target, new object[] { data1, data2 });
             }
@@ -133,7 +128,7 @@ public class  EventManager : Singleton<EventManager>
                 BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
 
                 MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-                  new Type[] { typeof(object), typeof(object), typeof(object) }, null);
+                    new Type[] { typeof(object), typeof(object), typeof(object) }, null);
 
                 theMethod?.Invoke(d.Target, new object[] { data1, data2, data3 });
             }
@@ -157,8 +152,7 @@ public class  EventManager : Singleton<EventManager>
 
                 BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
 
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-                 new Type[0], null);
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
 
                 StartCoroutine((IEnumerator)theMethod?.Invoke(del.Target, null));
             }
@@ -318,8 +312,7 @@ public class  EventManager : Singleton<EventManager>
 
         BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
 
-        MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-            new Type[0] , null);
+        MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
 
         foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
         {
@@ -334,7 +327,7 @@ public class  EventManager : Singleton<EventManager>
     /// <summary>
     /// Calls the IEnumerator functions that you want to run by event system
     /// </summary>
-    public void SendMessage_StartCoroutine(Component targetComponent,string functionName, object data) // invoke IEnumerator function with 1 data prarameter
+    public void SendMessage_StartCoroutine(Component targetComponent, string functionName, object data) // invoke IEnumerator function with 1 data prarameter
     {
         if (!targetComponent)
             return;
