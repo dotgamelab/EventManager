@@ -41,7 +41,7 @@ public class EventManager : Singleton<EventManager>
     //--------------------------------------------------------------
 
     /// <summary>
-    /// Call all the function names that you want to run by event system
+    /// Call all the functions registerd to the event system
     /// </summary>
     public void TriggerEvent(string functionName) // invoke subscribed function with no prarameter
     {
@@ -64,7 +64,7 @@ public class EventManager : Singleton<EventManager>
 
 
     /// <summary>
-    /// Call all the function names that you want to run by event system
+    /// Call all the functions registerd to the event system
     /// </summary>
     public void TriggerEvent(string functionName, object data) // invoke subscribed function with 1 data prarameter
     {
@@ -88,7 +88,7 @@ public class EventManager : Singleton<EventManager>
 
 
     /// <summary>
-    ///  Call all the function names that you want to run by event system
+    ///  Call all the functions registerd to the event system
     /// </summary>
     public void TriggerEvent(string functionName, object data1, object data2) // invoke subscribed function with 2 data prarameter
     {
@@ -112,7 +112,7 @@ public class EventManager : Singleton<EventManager>
 
 
     /// <summary>
-    ///  Call all the function names that you want to run by event system
+    /// Call all the functions registerd to the event system
     /// </summary>
     public void TriggerEvent(string functionName, object data1, object data2, object data3) // invoke subscribed function with 3 data prarameter
     {
@@ -137,7 +137,7 @@ public class EventManager : Singleton<EventManager>
 
 
     /// <summary>
-    /// Call all the IEnumerator functions that you want to run by event system
+    /// Call all the IEnumerator Coroutines that you want to run by event system
     /// </summary>
     public void TriggerEvent_StartCoroutine(string functionName) // IEnumerator Coroutine - invoke subscribed function with no data prarameter
     {
@@ -161,7 +161,7 @@ public class EventManager : Singleton<EventManager>
 
 
     /// <summary>
-    /// Call all the IEnumerator functions that you want to run by event system
+    /// Call all the IEnumerator Coroutines that you want to run by event system
     /// </summary>
     public void TriggerEvent_StartCoroutine(string functionName, object data) // IEnumerator Coroutine - invoke subscribed function with 1 data prarameter
     {
@@ -301,7 +301,7 @@ public class EventManager : Singleton<EventManager>
     }
 
     /// <summary>
-    /// Call the IEnumerator Coroutine that you want to run by event system
+    /// Call the IEnumerator Coroutines that you want to run by event system
     /// </summary>
     public void SendMessage_StartCoroutine(Component targetComponent, string functionName) // invoke IEnumerator with no prarameter
     {
@@ -325,7 +325,7 @@ public class EventManager : Singleton<EventManager>
     }
 
     /// <summary>
-    /// Calls the IEnumerator Coroutine that you want to run by event system
+    /// Calls the IEnumerator Coroutines that you want to run by event system
     /// </summary>
     public void SendMessage_StartCoroutine(Component targetComponent, string functionName, object data) // invoke IEnumerator with 1 data prarameter
     {
