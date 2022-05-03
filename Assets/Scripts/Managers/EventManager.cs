@@ -325,6 +325,34 @@ public class EventManager : Singleton<EventManager>
     }
 
     /// <summary>
+    /// Call the IEnumerator Coroutines that you want to run by event system
+    /// </summary>
+    public void SendMessage_StartCoroutine(GameObject target, string functionName) // invoke IEnumerator with no prarameter
+    {
+        if (!target)
+            return;
+
+        Component[] getComponents = target.GetComponentsInParent<Component>();
+
+        foreach (Component component in getComponents)
+        {
+            Type thisType = component.GetType();
+
+            BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+            MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
+
+            foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
+            {
+                if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
+                {
+                    StartCoroutine((IEnumerator)thisTypeMethodinfo?.Invoke(component, null));
+                }
+            }
+        }
+    }
+
+    /// <summary>
     /// Calls the IEnumerator Coroutines that you want to run by event system
     /// </summary>
     public void SendMessage_StartCoroutine(Component targetComponent, string functionName, object data) // invoke IEnumerator with 1 data prarameter
@@ -348,5 +376,36 @@ public class EventManager : Singleton<EventManager>
         }
 
     }
+
+    /// <summary>
+    /// Calls the IEnumerator Coroutines that you want to run by event system
+    /// </summary>
+    public void SendMessage_StartCoroutine(GameObject target, string functionName, object data) // invoke IEnumerator with 1 data prarameter
+    {
+
+        if (!target)
+            return;
+
+        Component[] getComponents = target.GetComponentsInParent<Component>();
+
+        foreach (Component component in getComponents)
+        {
+            Type thisType = component.GetType();
+
+            BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+            MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
+              new Type[] { typeof(object) }, null);
+
+            foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
+            {
+                if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
+                {
+                    StartCoroutine((IEnumerator)thisTypeMethodinfo?.Invoke(component, new object[] { data }));
+                }
+            }
+        }
+    }
+
 
 }

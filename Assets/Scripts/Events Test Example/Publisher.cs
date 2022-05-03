@@ -18,7 +18,6 @@ public class Publisher : MonoBehaviour
         EventManager.Instance.TriggerEvent_StartCoroutine("SubscribedMyCoroutin", "5");
 
 
-
         //--------- send direct message to the GameObject
 
         GameObject target = GameObject.Find("Target Object"); // fined target GameObject in the Game Scene
@@ -33,5 +32,8 @@ public class Publisher : MonoBehaviour
 
         EventManager.Instance.SendMessage_StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin"); // send to Coroutine no param 
         EventManager.Instance.SendMessage_StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin", 5); // send to Coroutine
+
+        EventManager.Instance.SendMessage_StartCoroutine(target, "MyCoroutin"); // send to Coroutine no param 
+        EventManager.Instance.SendMessage_StartCoroutine(target, "MyCoroutin", 255); // send to Coroutine
     }
 }
