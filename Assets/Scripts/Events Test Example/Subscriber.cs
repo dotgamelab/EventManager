@@ -13,6 +13,7 @@ public class Subscriber : MonoBehaviour
         EventManager.Instance.AddToListener_1_Param += DoSomething;
         EventManager.Instance.AddToListener_2_Param += DoSomething;
         EventManager.Instance.AddToListener_3_Param += DoSomething;
+        EventManager.Instance.AddToListener_4_Param += DoSomething;
 
         EventManager.Instance.AddToListener_Coroutine_0_Param += SubscribedMyCoroutin;
         EventManager.Instance.AddToListener_Coroutine_1_Param += SubscribedMyCoroutin;
@@ -44,6 +45,11 @@ public class Subscriber : MonoBehaviour
     void DoSomething(object data1, object data2, object data3)
     {
         Debug.Log(" Hi EveryOne " + data1.ToString() + data2.ToString() + data3.ToString());
+    }
+
+    void DoSomething(object data1, object data2, object data3, object data4)
+    {
+        Debug.Log(" Hi EveryOne " + data1.ToString() + data2.ToString() + data3.ToString() + data4.ToString());
     }
 
     void DoSomeThingDirect()

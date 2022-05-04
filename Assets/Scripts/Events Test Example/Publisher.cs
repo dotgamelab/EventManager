@@ -14,6 +14,7 @@ public class Publisher : MonoBehaviour
         EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ");
         EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ", " my data 2 ");
         EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ", " my data 2 ", " my data 3 ");
+        EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ", " my data 2 ", " my data 3 ", " my data 4 ");
         EventManager.Instance.TriggerEvent_StartCoroutine("SubscribedMyCoroutin");
         EventManager.Instance.TriggerEvent_StartCoroutine("SubscribedMyCoroutin", "5");
 
@@ -30,10 +31,17 @@ public class Publisher : MonoBehaviour
 
         EventManager.Instance.SendMessageUpwards(target, "Damage", 40); // send to GameObject
 
-        EventManager.Instance.SendMessage_StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin"); // send to Coroutine no param 
-        EventManager.Instance.SendMessage_StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin", 5); // send to Coroutine
+        EventManager.Instance.StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin"); // send to Coroutine no param 
+        EventManager.Instance.StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin", 5); // send to Coroutine
 
-        EventManager.Instance.SendMessage_StartCoroutine(target, "MyCoroutin"); // send to Coroutine no param 
-        EventManager.Instance.SendMessage_StartCoroutine(target, "MyCoroutin", 255); // send to Coroutine
+
+        EventManager.Instance.StartCoroutine(target, "MyCoroutin"); // send to Coroutine no param 
+        EventManager.Instance.StartCoroutine(target, "MyCoroutin", 255); // send to Coroutine
+
+        EventManager.Instance.StopCoroutine(target, "MyCoroutin"); // stop Coroutine
+
+        EventManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin"); // send to Coroutine no param 
+
+        EventManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin",6669); // send to Coroutine 
     }
 }
