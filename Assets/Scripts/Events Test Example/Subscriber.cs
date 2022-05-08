@@ -5,8 +5,7 @@ using System;
 
 public class Subscriber : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         // Subscribe to Event
         EventManager.Instance.AddToListener_0_Param += DoSomething;
@@ -15,41 +14,43 @@ public class Subscriber : MonoBehaviour
         EventManager.Instance.AddToListener_3_Param += DoSomething;
         EventManager.Instance.AddToListener_4_Param += DoSomething;
 
-        EventManager.Instance.AddToListener_Coroutine_0_Param += SubscribedMyCoroutin;
-        EventManager.Instance.AddToListener_Coroutine_1_Param += SubscribedMyCoroutin;
+        EventManager.Instance.AddToListener_Coroutine_0_Param += SubscribedMyCoroutine;
+        EventManager.Instance.AddToListener_Coroutine_1_Param += SubscribedMyCoroutine;
     }
 
-    private void OnDestroy() // UnSubscribe to Event
+    private void OnDisable() // UnSubscribe to Event
     {
+        if (!this.gameObject.scene.isLoaded) return;
+
         EventManager.Instance.AddToListener_0_Param -= DoSomething;
         EventManager.Instance.AddToListener_1_Param -= DoSomething;
         EventManager.Instance.AddToListener_2_Param -= DoSomething;
         EventManager.Instance.AddToListener_3_Param -= DoSomething;
 
-        EventManager.Instance.AddToListener_Coroutine_0_Param -= SubscribedMyCoroutin;
-        EventManager.Instance.AddToListener_Coroutine_1_Param -= SubscribedMyCoroutin;
+        EventManager.Instance.AddToListener_Coroutine_0_Param -= SubscribedMyCoroutine;
+        EventManager.Instance.AddToListener_Coroutine_1_Param -= SubscribedMyCoroutine;
     }
 
     private void DoSomething()
     {
-        Debug.Log(" Hi EveryOne ");
+        Debug.Log(" Subscribe Event ");
     }
     private void DoSomething(object data)
     {
-        Debug.Log(" Hi EveryOne " + data.ToString());
+        Debug.Log(" Subscribe Event " + data.ToString());
     }
     private void DoSomething(object data1, object data2)
     {
-        Debug.Log(" Hi EveryOne " + data1.ToString() + data2.ToString());
+        Debug.Log(" Subscribe Event " + data1.ToString() + data2.ToString());
     }
     void DoSomething(object data1, object data2, object data3)
     {
-        Debug.Log(" Hi EveryOne " + data1.ToString() + data2.ToString() + data3.ToString());
+        Debug.Log(" Subscribe Event " + data1.ToString() + data2.ToString() + data3.ToString());
     }
 
     void DoSomething(object data1, object data2, object data3, object data4)
     {
-        Debug.Log(" Hi EveryOne " + data1.ToString() + data2.ToString() + data3.ToString() + data4.ToString());
+        Debug.Log(" Subscribe Event " + data1.ToString() + data2.ToString() + data3.ToString() + data4.ToString());
     }
 
     void DoSomeThingDirect()
@@ -58,16 +59,16 @@ public class Subscriber : MonoBehaviour
     }
 
 
-    IEnumerator SubscribedMyCoroutin()
+    IEnumerator SubscribedMyCoroutine()
     {
-        Debug.Log("Start coroutin");
+        Debug.Log("Subscribe Event - Start coroutine");
 
         yield return null;
     }
 
-    IEnumerator SubscribedMyCoroutin(object data)
+    IEnumerator SubscribedMyCoroutine(object data)
     {
-        Debug.Log("Start coroutin " + data.ToString());
+        Debug.Log("Subscribe Event - Start coroutine " + data.ToString());
 
         yield return null;
     }

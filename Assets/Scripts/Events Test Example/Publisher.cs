@@ -7,9 +7,12 @@ public class Publisher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        RunEvents();
+        RunDirectMessage();
+    }
 
-        //--------- broadcast messages to all subscribers in the game scene
-
+    private void RunEvents() //--------- broadcast messages to all subscribers in the game scene
+    {
         EventManager.Instance.TriggerEvent("DoSomething");
         EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ");
         EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ", " my data 2 ");
@@ -17,10 +20,11 @@ public class Publisher : MonoBehaviour
         EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ", " my data 2 ", " my data 3 ", " my data 4 ");
         EventManager.Instance.TriggerEvent_StartCoroutine("SubscribedMyCoroutin");
         EventManager.Instance.TriggerEvent_StartCoroutine("SubscribedMyCoroutin", "5");
+    }
 
-
-        //--------- send direct message to the GameObject
-
+    private void RunDirectMessage() //--------- send direct message to the target GameObject
+    {
+        
         GameObject target = GameObject.Find("Target Object"); // fined target GameObject in the Game Scene
 
         MessageManager.Instance.SendMessage(target, "Damage", 10); // send to GameObject
@@ -42,6 +46,6 @@ public class Publisher : MonoBehaviour
 
         MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin"); // send to Coroutine no param 
 
-        MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin",6669); // send to Coroutine 
+        MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin", "Run Coroutine"); // send to Coroutine 
     }
 }
