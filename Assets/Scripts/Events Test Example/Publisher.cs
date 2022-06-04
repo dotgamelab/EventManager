@@ -11,7 +11,8 @@ public class Publisher : MonoBehaviour
         RunDirectMessage();
     }
 
-    private void RunEvents() //--------- broadcast messages to all subscribers in the game scene
+    //--------- broadcast messages to all subscribers in the game scene
+    private void RunEvents()
     {
         EventManager.Instance.TriggerEvent("DoSomething");
         EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ");
@@ -22,30 +23,41 @@ public class Publisher : MonoBehaviour
         EventManager.Instance.TriggerEvent_StartCoroutine("SubscribedMyCoroutin", "5");
     }
 
-    private void RunDirectMessage() //--------- send direct message to the target GameObject
+    //--------- send direct message to the target GameObject
+    private void RunDirectMessage() 
     {
-        
-        GameObject target = GameObject.Find("Target Object"); // fined target GameObject in the Game Scene
+        // fined target GameObject in the Game Scene
+        GameObject target = GameObject.Find("Target Object");
 
-        MessageManager.Instance.SendMessage(target, "Damage", 10); // send to GameObject
+        // send to GameObject
+        MessageManager.Instance.SendMessage(target, "Damage", 10);
 
-        MessageManager.Instance.SendMessage(target.GetComponent<TargetAgent>(), "Damage", 20); // send to specified component
+        // send to specified component
+        MessageManager.Instance.SendMessage(target.GetComponent<TargetAgent>(), "Damage", 20);
 
-        MessageManager.Instance.SendMessageToChildren(target, "Damage", 30); // send to GameObject childiins
+        // send to GameObject childiins
+        MessageManager.Instance.SendMessageToChildren(target, "Damage", 30);
 
-        MessageManager.Instance.SendMessageUpwards(target, "Damage", 40); // send to GameObject
+        // send to GameObjects - Upwards
+        MessageManager.Instance.SendMessageUpwards(target, "Damage", 40);
 
-        MessageManager.Instance.StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin"); // send to Coroutine no param 
-        MessageManager.Instance.StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin", 5); // send to Coroutine
+        // send to Coroutine no param 
+        MessageManager.Instance.StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin");
+        // send to Coroutine
+        MessageManager.Instance.StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin", 5);
 
+        // send to Coroutine no param 
+        MessageManager.Instance.StartCoroutine(target, "MyCoroutin");
+        // send to Coroutine
+        MessageManager.Instance.StartCoroutine(target, "MyCoroutin", 255);
 
-        MessageManager.Instance.StartCoroutine(target, "MyCoroutin"); // send to Coroutine no param 
-        MessageManager.Instance.StartCoroutine(target, "MyCoroutin", 255); // send to Coroutine
+        // stop Coroutine
+        MessageManager.Instance.StopCoroutine(target, "MyCoroutin");
 
-        MessageManager.Instance.StopCoroutine(target, "MyCoroutin"); // stop Coroutine
+        // send to Coroutine no param 
+        MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin");
 
-        MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin"); // send to Coroutine no param 
-
-        MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin", "Run Coroutine"); // send to Coroutine 
+        // send to Coroutine 
+        MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin", "Run Coroutine"); 
     }
 }

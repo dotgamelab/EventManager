@@ -18,9 +18,12 @@ public class Subscriber : MonoBehaviour
         EventManager.Instance.AddToListener_Coroutine_1_Param += SubscribedMyCoroutine;
     }
 
-    private void OnDisable() // UnSubscribe to Event
+    
+    private void OnDisable() 
     {
         if (!this.gameObject.scene.isLoaded) return;
+
+        // UnSubscribe to Event
 
         EventManager.Instance.AddToListener_0_Param -= DoSomething;
         EventManager.Instance.AddToListener_1_Param -= DoSomething;
