@@ -48,11 +48,15 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the functions registerd to the event system
     /// </summary>
-    public void TriggerEvent(string functionName) // invoke subscribed function with no prarameter
+    public void TriggerEvent(string functionName) 
     {
         if (AddToListener_0_Param == null)
+        {
+            Debug.Log("Error : No Registered Function Name Like " + functionName);
             return;
+        }
 
+        // invoke subscribed functions with no prarameter
         foreach (Delegate del in AddToListener_0_Param.GetInvocationList())
         {
             if (del.Method.Name == functionName)
@@ -71,11 +75,15 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the functions registerd to the event system
     /// </summary>
-    public void TriggerEvent(string functionName, object data) // invoke subscribed function with 1 data prarameter
+    public void TriggerEvent(string functionName, object data) 
     {
         if (AddToListener_1_Param == null)
+        {
+            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
             return;
+        }
 
+        // invoke subscribed functions with 1 data prarameter
         foreach (Delegate del in AddToListener_1_Param.GetInvocationList())
         {
             if (del.Method.Name == functionName)
@@ -95,11 +103,15 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     ///  Call all the functions registerd to the event system
     /// </summary>
-    public void TriggerEvent(string functionName, object data1, object data2) // invoke subscribed function with 2 data prarameter
+    public void TriggerEvent(string functionName, object data1, object data2) 
     {
         if (AddToListener_2_Param == null)
+        {
+            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
             return;
+        }
 
+        // invoke subscribed functions with 2 data prarameter
         foreach (Delegate d in AddToListener_2_Param.GetInvocationList())
         {
             if (d.Method.Name == functionName)
@@ -119,11 +131,15 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the functions registerd to the event system
     /// </summary>
-    public void TriggerEvent(string functionName, object data1, object data2, object data3) // invoke subscribed function with 3 data prarameter
+    public void TriggerEvent(string functionName, object data1, object data2, object data3) 
     {
         if (AddToListener_3_Param == null)
+        {
+            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
             return;
+        }
 
+        // invoke subscribed functions with 3 data prarameter
         foreach (Delegate d in AddToListener_3_Param.GetInvocationList())
         {
             if (d.Method.Name == functionName)
@@ -143,11 +159,15 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the functions registerd to the event system
     /// </summary>
-    public void TriggerEvent(string functionName, object data1, object data2, object data3, object data4) // invoke subscribed function with 4 data prarameter
+    public void TriggerEvent(string functionName, object data1, object data2, object data3, object data4) 
     {
         if (AddToListener_4_Param == null)
+        {
+            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
             return;
+        }
 
+        // invoke subscribed functions with 4 data prarameter
         foreach (Delegate d in AddToListener_4_Param.GetInvocationList())
         {
             if (d.Method.Name == functionName)
@@ -168,11 +188,16 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void TriggerEvent_StartCoroutine(string functionName) // IEnumerator Coroutine - invoke subscribed function with no data prarameter
+    public void TriggerEvent_StartCoroutine(string functionName) 
     {
+        //Debug.Log("ttt1");
         if (AddToListener_Coroutine_0_Param == null)
+        {
+            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
             return;
+        }
 
+        // IEnumerator Coroutine - invoke subscribed functions with no data prarameter
         foreach (Delegate del in AddToListener_Coroutine_0_Param.GetInvocationList())
         {
             if (del.Method.Name == functionName)
@@ -192,11 +217,15 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void TriggerEvent_StartCoroutine(string functionName, object data) // IEnumerator Coroutine - invoke subscribed function with 1 data prarameter
+    public void TriggerEvent_StartCoroutine(string functionName, object data) 
     {
         if (AddToListener_Coroutine_1_Param == null)
+        {
+            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
             return;
+        }
 
+        // IEnumerator Coroutine - invoke subscribed functions with 1 data prarameter
         foreach (Delegate del in AddToListener_Coroutine_1_Param.GetInvocationList())
         {
             if (del.Method.Name == functionName)

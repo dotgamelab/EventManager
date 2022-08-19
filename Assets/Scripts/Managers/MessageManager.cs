@@ -122,9 +122,56 @@ public class MessageManager : Singleton<MessageManager>
     }
 
     /// <summary>
+    ///  Send direct message to the target GameObject component and all children 
+    /// </summary>
+    //public void SendMessageToChildren(Component targetComponent, string functionName, object data)
+    //{
+    //    if (!targetComponent)
+    //        return;
+
+    //    Type thisType = targetComponent.GetType();
+
+    //    BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+    //    MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
+    //        new Type[] { typeof(object) }, null);
+
+    //    foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
+    //    {
+    //        if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
+    //        {
+    //            thisTypeMethodinfo?.Invoke(targetComponent, new object[] { data });
+    //        }
+    //    }
+
+
+    //    //------
+
+    //    Component[] getComponentsInChildren = target.GetComponentsInChildren<Component>();
+
+    //    foreach (Component c in getComponentsInChildren)
+    //    {
+    //        Type thisType = c.GetType();
+
+    //        BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+    //        MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
+    //            new Type[] { typeof(object) }, null);
+
+    //        foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
+    //        {
+    //            if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
+    //            {
+    //                thisTypeMethodinfo?.Invoke(c, new object[] { data });
+    //            }
+    //        }
+    //    }
+    //}
+
+    /// <summary>
     /// Call the IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void StartCoroutine(Component targetComponent, string functionName) // invoke IEnumerator with no prarameter
+    public void StartCoroutine(Component targetComponent, string functionName) 
     {
         if (!targetComponent)
             return;
@@ -135,6 +182,7 @@ public class MessageManager : Singleton<MessageManager>
 
         MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
 
+        // invoke IEnumerators with no prarameter
         foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
         {
             if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
@@ -148,7 +196,7 @@ public class MessageManager : Singleton<MessageManager>
     /// <summary>
     /// Call the IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void StartCoroutine(GameObject target, string functionName) // invoke IEnumerator with no prarameter
+    public void StartCoroutine(GameObject target, string functionName) 
     {
         if (!target)
             return;
@@ -163,6 +211,7 @@ public class MessageManager : Singleton<MessageManager>
 
             MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
 
+            // invoke IEnumerators with no prarameter
             foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
             {
                 if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
@@ -176,7 +225,7 @@ public class MessageManager : Singleton<MessageManager>
     /// <summary>
     /// Calls the IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void StartCoroutine(Component targetComponent, string functionName, object data) // invoke IEnumerator with 1 data prarameter
+    public void StartCoroutine(Component targetComponent, string functionName, object data) 
     {
         if (!targetComponent)
             return;
@@ -188,6 +237,7 @@ public class MessageManager : Singleton<MessageManager>
         MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
             new Type[] { typeof(object) }, null);
 
+        // invoke IEnumerators with 1 data prarameter
         foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
         {
             if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
@@ -201,7 +251,7 @@ public class MessageManager : Singleton<MessageManager>
     /// <summary>
     /// Calls the IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void StartCoroutine(GameObject target, string functionName, object data) // invoke IEnumerator with 1 data prarameter
+    public void StartCoroutine(GameObject target, string functionName, object data) 
     {
 
         if (!target)
@@ -218,6 +268,7 @@ public class MessageManager : Singleton<MessageManager>
             MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
               new Type[] { typeof(object) }, null);
 
+            // invoke IEnumerators with 1 data prarameter
             foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
             {
                 if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
@@ -232,7 +283,7 @@ public class MessageManager : Singleton<MessageManager>
     /// <summary>
     /// Call the IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void StopCoroutine(GameObject target, string functionName) // invoke IEnumerator with no prarameter
+    public void StopCoroutine(GameObject target, string functionName) 
     {
         if (!target)
             return;
@@ -247,6 +298,7 @@ public class MessageManager : Singleton<MessageManager>
 
             MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
 
+            // invoke IEnumerators with no prarameter
             foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
             {
                 if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
@@ -260,7 +312,7 @@ public class MessageManager : Singleton<MessageManager>
     /// <summary>
     /// Call the Generic IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void StartCoroutine<T>(T target, string functionName) where T : Component // invoke IEnumerator with no prarameter
+    public void StartCoroutine<T>(T target, string functionName) where T : Component
     {
 
         if (ReferenceEquals(target, null))
@@ -276,6 +328,7 @@ public class MessageManager : Singleton<MessageManager>
 
             MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
 
+            // invoke IEnumerators with no prarameter
             foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
             {
                 if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
@@ -289,7 +342,7 @@ public class MessageManager : Singleton<MessageManager>
     /// <summary>
     /// Calls the Generic IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void StartCoroutine<T>(T target, string functionName, object data) where T : Component // invoke IEnumerator with 1 data prarameter
+    public void StartCoroutine<T>(T target, string functionName, object data) where T : Component 
     {
 
         if (ReferenceEquals(target, null))
@@ -306,6 +359,7 @@ public class MessageManager : Singleton<MessageManager>
             MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
               new Type[] { typeof(object) }, null);
 
+            // invoke IEnumerators with 1 data prarameter
             foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
             {
                 if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
