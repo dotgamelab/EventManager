@@ -17,25 +17,34 @@ public class Singleton<T> : MonoBehaviour where T : Component
 					GameObject obj = new GameObject();
 					obj.name = typeof(T).Name;
 					instance = obj.AddComponent<T>();
-					DontDestroyOnLoad(instance.gameObject);
 				}
 			}
 			return instance;
 		}
 	}
 
-	public virtual void Awake()
+	private void Awake()
 	{
-		if (!instance)
+        if (FindObjectsOfType<T>().Length > 1)
+		{
+			T[] arrT = FindObjectsOfType<T>();
+
+            for (int i = 0; i < FindObjectsOfType<T>().Length; i++)
+			{
+				if (i > 0)
+				{
+                    Destroy(arrT[i].gameObject);
+				}
+                else
+					DontDestroyOnLoad(arrT[i].gameObject);
+            }
+		}
+		else
 		{
 			instance = this as T;
 			DontDestroyOnLoad(instance.gameObject);
 		}
-		else
-		{
-			Destroy(instance.gameObject);
-		}
-	}
+    }
 }
 
 
