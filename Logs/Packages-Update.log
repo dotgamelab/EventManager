@@ -54,3 +54,15 @@ The following packages were updated:
   com.unity.collab-proxy from version 1.15.4 to 1.15.15
   com.unity.ide.rider from version 3.0.7 to 3.0.13
   com.unity.timeline from version 1.6.3 to 1.6.4
+
+=== Sat Aug 20 19:14:37 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.collab-proxy from version 1.15.15 to 1.17.1
+  com.unity.ide.rider from version 3.0.13 to 3.0.15
+  com.unity.ide.visualstudio from version 2.0.15 to 2.0.16
+  com.unity.timeline from version 1.6.4 to 1.7.1
+  com.unity.visualscripting from version 1.7.6 to 1.7.8
