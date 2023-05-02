@@ -242,4 +242,38 @@ public class EventManager : Singleton<EventManager>
         }
     }
 
+    /// <summary>
+    /// Call all the IEnumerator Coroutines that you want to run by event system
+    /// </summary>
+    public void TriggerEvent_StartCoroutine(Component sender, string functionName, object data)
+    {
+        if (AddToListener_Coroutine_1_Param == null)
+        {
+            Debug.Log("Sender Component : " + sender + " - Null Ref : Related Gameoject is Disabled Or No Exist Any Registered Function Name Like : " + functionName);
+            return;
+        }
+
+        bool isFunctionInvokeDone = false;
+
+        // IEnumerator Coroutine - invoke subscribed functions with 1 data prarameter
+        foreach (Delegate del in AddToListener_Coroutine_1_Param.GetInvocationList())
+        {
+            if (del.Method.Name == functionName)
+            {
+                Type thisType = del.Target.GetType();
+
+                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
+                new Type[] { typeof(object) }, null);
+
+                StartCoroutine((IEnumerator)theMethod?.Invoke(del.Target, new object[] { data }));
+                isFunctionInvokeDone = true;
+            }
+        }
+
+        if (!isFunctionInvokeDone)
+            Debug.Log(sender + " Error : " + functionName + " invoke is failed !");
+    }
+
 }
