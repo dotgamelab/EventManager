@@ -14,13 +14,13 @@ public class Publisher : MonoBehaviour
     //--------- broadcast messages to all subscribers in the game scene
     private void RunEvents()
     {
-        EventManager.Instance.TriggerEvent("DoSomething");
-        EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ");
-        EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ", " my data 2 ");
-        EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ", " my data 2 ", " my data 3 ");
-        EventManager.Instance.TriggerEvent("DoSomething", " my data 1 ", " my data 2 ", " my data 3 ", " my data 4 ");
-        EventManager.Instance.TriggerEvent_StartCoroutine("SubscribedMyCoroutin");
-        EventManager.Instance.TriggerEvent_StartCoroutine("SubscribedMyCoroutin", "5");
+        EventManager.Instance.TriggerEvent("OnDoSomething");
+        EventManager.Instance.TriggerEvent("OnDoSomething", " my data 1 ");
+        EventManager.Instance.TriggerEvent("OnDoSomething", " my data 1 ", " my data 2 ");
+        EventManager.Instance.TriggerEvent("OnDoSomething", " my data 1 ", " my data 2 ", " my data 3 ");
+        EventManager.Instance.TriggerEvent("OnDoSomething", " my data 1 ", " my data 2 ", " my data 3 ", " my data 4 ");
+        EventManager.Instance.TriggerEvent_StartCoroutine("OnSubscribedMyCoroutin");
+        EventManager.Instance.TriggerEvent_StartCoroutine("OnSubscribedMyCoroutin", "5");
     }
 
     //--------- send direct message to the target GameObject
