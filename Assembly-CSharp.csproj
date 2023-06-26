@@ -58,13 +58,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.2.21f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Event System\EventManager.cs" />
-    <Compile Include="Assets\Scripts\Events Test Example\TargetAgent.cs" />
-    <Compile Include="Assets\Scripts\Events Test Example\Publisher.cs" />
-    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Managers\Singleton.cs" />
-    <Compile Include="Assets\Scripts\Events Test Example\Subscriber.cs" />
-    <Compile Include="Assets\Scripts\Event System\MessageManager.cs" />
+    <Compile Include="Assets\Scripts\Enum\GameEnums.cs" />
+    <Compile Include="Assets\Scripts\Event Manager\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Test Example\Publisher.cs" />
+    <Compile Include="Assets\Scripts\Event Manager\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Event Manager\MessageManager.cs" />
+    <Compile Include="Assets\Scripts\Test Example\TargetAgent.cs" />
+    <Compile Include="Assets\Scripts\Test Example\Subscriber.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
