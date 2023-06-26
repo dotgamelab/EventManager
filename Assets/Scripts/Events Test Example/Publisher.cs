@@ -42,6 +42,9 @@ public class Publisher : MonoBehaviour
         MessageManager.Instance.SendMessageUpwards(target, "Damage", 40);
 
         // broadcast to all GameObjects in the scene
+        MessageManager.Instance.BroadCastMessage("Damage");
+
+        // broadcast to all GameObjects in the scene
         MessageManager.Instance.BroadCastMessage("Damage", 1000);
 
         // send to Coroutine no param 
@@ -61,6 +64,6 @@ public class Publisher : MonoBehaviour
         MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin");
 
         // send to Coroutine 
-        MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin", "Run Coroutine"); 
+        MessageManager.Instance.StartCoroutine<Transform>(target.transform, "MyCoroutin", "Run Coroutine");
     }
 }

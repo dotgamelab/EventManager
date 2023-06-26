@@ -7,12 +7,12 @@ public class TargetAgent : MonoBehaviour
 
     void Damage()
     {
-        Debug.Log(" damage : ");
+        Debug.Log(" damage");
     }
 
     void Damage(object damage)
     {
-        Debug.Log(" damage : " + (int)damage + " " + gameObject.name);
+        Debug.Log(" damage  : " + (int)damage);
     }
 
     //--------------------
