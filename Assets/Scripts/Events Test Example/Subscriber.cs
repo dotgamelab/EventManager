@@ -14,8 +14,8 @@ public class Subscriber : MonoBehaviour
         EventManager.Instance.AddToListener_3_Param += OnDoSomething;
         EventManager.Instance.AddToListener_4_Param += OnDoSomething;
 
-        EventManager.Instance.AddToListener_Coroutine_0_Param += OnSubscribedMyCoroutine;
-        EventManager.Instance.AddToListener_Coroutine_1_Param += OnSubscribedMyCoroutine;
+        EventManager.Instance.AddToListener_Coroutine_0_Param += OnSubscribedMyCoroutin;
+        EventManager.Instance.AddToListener_Coroutine_1_Param += OnSubscribedMyCoroutin;
     }
 
     
@@ -30,13 +30,13 @@ public class Subscriber : MonoBehaviour
         EventManager.Instance.AddToListener_2_Param -= OnDoSomething;
         EventManager.Instance.AddToListener_3_Param -= OnDoSomething;
 
-        EventManager.Instance.AddToListener_Coroutine_0_Param -= OnSubscribedMyCoroutine;
-        EventManager.Instance.AddToListener_Coroutine_1_Param -= OnSubscribedMyCoroutine;
+        EventManager.Instance.AddToListener_Coroutine_0_Param -= OnSubscribedMyCoroutin;
+        EventManager.Instance.AddToListener_Coroutine_1_Param -= OnSubscribedMyCoroutin;
     }
 
     private void OnDoSomething()
     {
-        Debug.Log(" Subscribe Event ");
+        Debug.Log(" Subscribe Event with 0 data parameter");
     }
     private void OnDoSomething(object data)
     {
@@ -62,14 +62,14 @@ public class Subscriber : MonoBehaviour
     }
 
 
-    IEnumerator OnSubscribedMyCoroutine()
+    IEnumerator OnSubscribedMyCoroutin()
     {
-        Debug.Log("Subscribe Event - Start coroutine");
+        Debug.Log("Subscribe Event - Start coroutine 0 param");
 
         yield return null;
     }
 
-    IEnumerator OnSubscribedMyCoroutine(object data)
+    IEnumerator OnSubscribedMyCoroutin(object data)
     {
         Debug.Log("Subscribe Event - Start coroutine " + data.ToString());
 

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class MessageManager : Singleton<MessageManager>
 {
-
     /* send & broadcast direct messages system */
 
     /// <summary>
@@ -167,6 +166,57 @@ public class MessageManager : Singleton<MessageManager>
     //        }
     //    }
     //}
+
+    /// <summary>
+    /// BroadCast Message to the all GameObject in the scene
+    /// </summary>
+    public void BroadCastMessage(string functionName)
+    {
+        Component[] getComponents = UnityEngine.Object.FindObjectsOfType<Component>();
+
+        foreach (Component component in getComponents)
+        {
+            Type thisType = component.GetType();
+
+            BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+            MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
+                new Type[] { typeof(object) }, null);
+
+            foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
+            {
+                if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
+                {
+                    thisTypeMethodinfo?.Invoke(component, new object[] { null });
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// BroadCast Message with data parameter to the all GameObject in the scene
+    /// </summary>
+    public void BroadCastMessage(string functionName, object data)
+    {
+        Component[] getComponents = UnityEngine.Object.FindObjectsOfType<Component>();
+
+        foreach (Component component in getComponents)
+        {
+            Type thisType = component.GetType();
+
+            BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
+
+            MethodInfo thisTypeMethodinfo = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
+                new Type[] { typeof(object) }, null);
+
+            foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
+            {
+                if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
+                {
+                    thisTypeMethodinfo?.Invoke(component, new object[] { data });
+                }
+            }
+        }
+    }
 
     /// <summary>
     /// Call the IEnumerator Coroutines that you want to run by event system

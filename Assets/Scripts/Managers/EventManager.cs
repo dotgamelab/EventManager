@@ -52,7 +52,7 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_0_Param == null)
         {
-            Debug.Log("Error : No Registered Function Name Like " + functionName);
+            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -61,16 +61,10 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                Type thisType = del.Target.GetType();
-
-                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
-
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
-                theMethod?.Invoke(del.Target, null);
+                del.DynamicInvoke(null);
             }
         }
     }
-
 
     /// <summary>
     /// Call all the functions registerd to the event system
@@ -79,7 +73,7 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_1_Param == null)
         {
-            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
+            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -88,17 +82,10 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                Type thisType = del.Target.GetType();
-
-                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
-
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[] { typeof(object) }, null);
-
-                theMethod?.Invoke(del.Target, new object[] { data });
+                del.DynamicInvoke(data);
             }
         }
     }
-
 
     /// <summary>
     ///  Call all the functions registerd to the event system
@@ -107,26 +94,19 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_2_Param == null)
         {
-            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
+            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
         // invoke subscribed functions with 2 data prarameter
-        foreach (Delegate d in AddToListener_2_Param.GetInvocationList())
+        foreach (Delegate del in AddToListener_2_Param.GetInvocationList())
         {
-            if (d.Method.Name == functionName)
+            if (del.Method.Name == functionName)
             {
-                Type thisType = d.Target.GetType();
-
-                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
-
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[] { typeof(object), typeof(object) }, null);
-
-                theMethod?.Invoke(d.Target, new object[] { data1, data2 });
+                del.DynamicInvoke(data1, data2);
             }
         }
     }
-
 
     /// <summary>
     /// Call all the functions registerd to the event system
@@ -135,23 +115,16 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_3_Param == null)
         {
-            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
+            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
         // invoke subscribed functions with 3 data prarameter
-        foreach (Delegate d in AddToListener_3_Param.GetInvocationList())
+        foreach (Delegate del in AddToListener_3_Param.GetInvocationList())
         {
-            if (d.Method.Name == functionName)
+            if (del.Method.Name == functionName)
             {
-                Type thisType = d.Target.GetType();
-
-                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
-
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-                    new Type[] { typeof(object), typeof(object), typeof(object) }, null);
-
-                theMethod?.Invoke(d.Target, new object[] { data1, data2, data3 });
+                del.DynamicInvoke(data1, data2, data3);
             }
         }
     }
@@ -163,27 +136,19 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_4_Param == null)
         {
-            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
+            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
         // invoke subscribed functions with 4 data prarameter
-        foreach (Delegate d in AddToListener_4_Param.GetInvocationList())
+        foreach (Delegate del in AddToListener_4_Param.GetInvocationList())
         {
-            if (d.Method.Name == functionName)
+            if (del.Method.Name == functionName)
             {
-                Type thisType = d.Target.GetType();
-
-                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
-
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-                    new Type[] { typeof(object), typeof(object), typeof(object), typeof(object) }, null);
-
-                theMethod?.Invoke(d.Target, new object[] { data1, data2, data3, data4 });
+                del.DynamicInvoke(data1, data2, data3, data4);
             }
         }
     }
-
 
     /// <summary>
     /// Call all the IEnumerator Coroutines that you want to run by event system
@@ -193,7 +158,7 @@ public class EventManager : Singleton<EventManager>
         //Debug.Log("ttt1");
         if (AddToListener_Coroutine_0_Param == null)
         {
-            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
+            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -202,17 +167,10 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                Type thisType = del.Target.GetType();
-
-                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
-
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any, new Type[0], null);
-
-                StartCoroutine((IEnumerator)theMethod?.Invoke(del.Target, null));
+                StartCoroutine((IEnumerator)del.DynamicInvoke(null));
             }
         }
     }
-
 
     /// <summary>
     /// Call all the IEnumerator Coroutines that you want to run by event system
@@ -221,7 +179,7 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_Coroutine_1_Param == null)
         {
-            Debug.Log("Error : No Exist Any Registered Function Name Like " + functionName);
+            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -230,14 +188,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                Type thisType = del.Target.GetType();
-
-                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
-
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-                new Type[] { typeof(object) }, null);
-
-                StartCoroutine((IEnumerator)theMethod?.Invoke(del.Target, new object[] { data }));
+                StartCoroutine((IEnumerator)del.DynamicInvoke(data));
             }
         }
     }
@@ -249,7 +200,7 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_Coroutine_1_Param == null)
         {
-            Debug.Log("Sender Component : " + sender + " - Null Ref : Related Gameoject is Disabled Or No Exist Any Registered Function Name Like : " + functionName);
+            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -260,14 +211,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                Type thisType = del.Target.GetType();
-
-                BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
-
-                MethodInfo theMethod = thisType.GetMethod(functionName, bindingFlags, null, CallingConventions.Any,
-                new Type[] { typeof(object) }, null);
-
-                StartCoroutine((IEnumerator)theMethod?.Invoke(del.Target, new object[] { data }));
+                StartCoroutine((IEnumerator)del.DynamicInvoke(data));
                 isFunctionInvokeDone = true;
             }
         }
@@ -275,5 +219,4 @@ public class EventManager : Singleton<EventManager>
         if (!isFunctionInvokeDone)
             Debug.Log(sender + " Error : " + functionName + " invoke is failed !");
     }
-
 }

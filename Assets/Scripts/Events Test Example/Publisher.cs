@@ -41,6 +41,9 @@ public class Publisher : MonoBehaviour
         // send to GameObjects - Upwards
         MessageManager.Instance.SendMessageUpwards(target, "Damage", 40);
 
+        // broadcast to all GameObjects in the scene
+        MessageManager.Instance.BroadCastMessage("Damage", 1000);
+
         // send to Coroutine no param 
         MessageManager.Instance.StartCoroutine(target.GetComponent<TargetAgent>(), "MyCoroutin");
         // send to Coroutine
