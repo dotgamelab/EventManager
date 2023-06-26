@@ -168,7 +168,7 @@ public class MessageManager : Singleton<MessageManager>
     //}
 
     /// <summary>
-    /// BroadCast Message to the all GameObject in the scene
+    /// BroadCast Message to the all GameObject in the scene 
     /// </summary>
     public void BroadCastMessage(string functionName)
     {
@@ -193,7 +193,7 @@ public class MessageManager : Singleton<MessageManager>
         }
     }
     /// <summary>
-    /// BroadCast Message with data parameter to the all GameObject in the scene
+    /// BroadCast Message to the all GameObject in the scene 
     /// </summary>
     public void BroadCastMessage(string functionName, object data)
     {
@@ -210,7 +210,7 @@ public class MessageManager : Singleton<MessageManager>
 
             foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
             {
-                if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
+                if (mInfo.Name == functionName)
                 {
                     thisTypeMethodinfo?.Invoke(component, new object[] { data });
                 }
