@@ -185,7 +185,7 @@ public class MessageManager : Singleton<MessageManager>
 
             foreach (MethodInfo mInfo in thisType.GetMethods(bindingFlags))
             {
-                if (mInfo.Name == functionName && mInfo == thisTypeMethodinfo)
+                if (mInfo.Name == functionName)
                 {
                     thisTypeMethodinfo?.Invoke(component, new object[] { null });
                 }
