@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using System.Collections;
 using UnityEngine;
+using static EventManager;
 
 public class EventManager : Singleton<EventManager>
 {
@@ -48,11 +49,11 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the functions registerd to the event system
     /// </summary>
-    public void TriggerEvent(string functionName) 
+    public void TriggerEvent(string functionName)
     {
         if (AddToListener_0_Param == null)
         {
-            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
+            Debug.Log("Null Ref : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -69,11 +70,11 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the functions registerd to the event system
     /// </summary>
-    public void TriggerEvent<T>(string functionName, T data) 
+    public void TriggerEvent<T>(string functionName, T data)
     {
         if (AddToListener_1_Param == null)
         {
-            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
+            Debug.Log("Null Ref : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -94,7 +95,7 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_2_Param == null)
         {
-            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
+            Debug.Log("Null Ref : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -115,7 +116,7 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_3_Param == null)
         {
-            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
+            Debug.Log("Null Ref : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -136,7 +137,7 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_4_Param == null)
         {
-            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
+            Debug.Log("Null Ref : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -153,12 +154,12 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void TriggerEvent_StartCoroutine(string functionName) 
+    public void TriggerEvent_StartCoroutine(string functionName)
     {
         //Debug.Log("ttt1");
         if (AddToListener_Coroutine_0_Param == null)
         {
-            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
+            Debug.Log("Null Ref : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -175,11 +176,11 @@ public class EventManager : Singleton<EventManager>
     /// <summary>
     /// Call all the IEnumerator Coroutines that you want to run by event system
     /// </summary>
-    public void TriggerEvent_StartCoroutine<T>(string functionName, T data) 
+    public void TriggerEvent_StartCoroutine<T>(string functionName, T data)
     {
         if (AddToListener_Coroutine_1_Param == null)
         {
-            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
+            Debug.Log("Null Ref : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 
@@ -200,7 +201,7 @@ public class EventManager : Singleton<EventManager>
     {
         if (AddToListener_Coroutine_1_Param == null)
         {
-            Debug.Log("Null Error : No Registered Function Name Like " + functionName + " In Any Gameobject.");
+            Debug.Log("Null Ref : No Registered Function Name Like " + functionName + " In Any Gameobject.");
             return;
         }
 

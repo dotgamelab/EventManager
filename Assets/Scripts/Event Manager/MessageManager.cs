@@ -173,7 +173,7 @@ public class MessageManager : Singleton<MessageManager>
     }
 
     /// <summary>
-    /// Call the IEnumerator Coroutines that you want to run by event system
+    /// Call the IEnumerator Coroutines 
     /// </summary>
     public void StartCoroutine(Component targetComponent, string functionName)
     {
@@ -197,7 +197,7 @@ public class MessageManager : Singleton<MessageManager>
     }
 
     /// <summary>
-    /// Call the IEnumerator Coroutines that you want to run by event system
+    /// Call the IEnumerator Coroutines 
     /// </summary>
     public void StartCoroutine(GameObject target, string functionName)
     {
@@ -226,7 +226,7 @@ public class MessageManager : Singleton<MessageManager>
     }
 
     /// <summary>
-    /// Calls the IEnumerator Coroutines that you want to run by event system
+    /// Calls the IEnumerator Coroutines and send a one data arg
     /// </summary>
     public void StartCoroutine<T>(Component targetComponent, string functionName, T data)
     {
@@ -252,7 +252,7 @@ public class MessageManager : Singleton<MessageManager>
     }
 
     /// <summary>
-    /// Calls the IEnumerator Coroutines that you want to run by event system
+    /// Calls the IEnumerator Coroutines and send a one data arg
     /// </summary>
     public void StartCoroutine<T>(GameObject target, string functionName, T data)
     {
@@ -284,7 +284,7 @@ public class MessageManager : Singleton<MessageManager>
 
 
     /// <summary>
-    /// Call the IEnumerator Coroutines that you want to run by event system
+    /// Stop the IEnumerator Coroutines 
     /// </summary>
     public void StopCoroutine(GameObject target, string functionName)
     {
@@ -313,7 +313,7 @@ public class MessageManager : Singleton<MessageManager>
     }
 
     /// <summary>
-    /// Call the Generic IEnumerator Coroutines that you want to run by event system
+    /// Call the IEnumerator Coroutines with target component constraint
     /// </summary>
     public void StartCoroutine<T>(T target, string functionName) where T : Component
     {
@@ -343,7 +343,7 @@ public class MessageManager : Singleton<MessageManager>
     }
 
     /// <summary>
-    /// Calls the Generic IEnumerator Coroutines that you want to run by event system
+    /// Call the IEnumerator Coroutines with target component constraint + send a one data arg
     /// </summary>
     public void StartCoroutine<T, U>(T target, string functionName, U data) where T : Component
     {
