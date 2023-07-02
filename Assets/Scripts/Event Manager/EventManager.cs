@@ -1,8 +1,6 @@
 using System;
-using System.Reflection;
 using System.Collections;
 using UnityEngine;
-using static EventManager;
 
 public class EventManager : Singleton<EventManager>
 {
@@ -62,7 +60,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                del.DynamicInvoke(null);
+                del?.DynamicInvoke(null);
             }
         }
     }
@@ -83,7 +81,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                del.DynamicInvoke(data);
+                del?.DynamicInvoke(data);
             }
         }
     }
@@ -104,7 +102,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                del.DynamicInvoke(data1, data2);
+                del?.DynamicInvoke(data1, data2);
             }
         }
     }
@@ -125,7 +123,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                del.DynamicInvoke(data1, data2, data3);
+                del?.DynamicInvoke(data1, data2, data3);
             }
         }
     }
@@ -146,7 +144,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                del.DynamicInvoke(data1, data2, data3, data4);
+                del?.DynamicInvoke(data1, data2, data3, data4);
             }
         }
     }
@@ -168,7 +166,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                StartCoroutine((IEnumerator)del.DynamicInvoke(null));
+                StartCoroutine((IEnumerator)del?.DynamicInvoke(null));
             }
         }
     }
@@ -189,7 +187,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                StartCoroutine((IEnumerator)del.DynamicInvoke(data));
+                StartCoroutine((IEnumerator)del?.DynamicInvoke(data));
             }
         }
     }
@@ -212,7 +210,7 @@ public class EventManager : Singleton<EventManager>
         {
             if (del.Method.Name == functionName)
             {
-                StartCoroutine((IEnumerator)del.DynamicInvoke(data));
+                StartCoroutine((IEnumerator)del?.DynamicInvoke(data));
                 isFunctionInvokeDone = true;
             }
         }
