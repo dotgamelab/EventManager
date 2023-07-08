@@ -35,7 +35,7 @@ An Event Manager system for unity game projects based on C# events and Reflectio
  EventManager.Instance.TriggerEvent_StartCoroutine("OnSubscribedMyCoroutine", "YourData");
 ```
 -----------------------------------------------------------------------------------------
-Send Message to a GameObject Example
+Send Message Example :
 ```cs
  MessageManager.Instance.SendMessage(_target, "Damage", 10);
 
