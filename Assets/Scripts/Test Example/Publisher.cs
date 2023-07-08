@@ -32,8 +32,8 @@ public class Publisher : MonoBehaviour
         EventManager.Instance.TriggerEvent("OnDoSomething", " my data 1 ", 10);
         EventManager.Instance.TriggerEvent("OnDoSomething", " my data 1 ", " my data 2 ", 56.54f);
         EventManager.Instance.TriggerEvent("OnDoSomething", " my data 1 ", " my data 2 ", " my data 3 ", PlayerState.Idle);
-        EventManager.Instance.TriggerEvent_StartCoroutine("OnSubscribedMyCoroutin");
-        EventManager.Instance.TriggerEvent_StartCoroutine("OnSubscribedMyCoroutin", "5");
+        EventManager.Instance.TriggerEvent_StartCoroutine("OnSubscribedMyCoroutine");
+        EventManager.Instance.TriggerEvent_StartCoroutine("OnSubscribedMyCoroutine", "5");
     }
 
     //--------- Send Message to the target GameObject
@@ -64,24 +64,24 @@ public class Publisher : MonoBehaviour
         MessageManager.Instance.BroadCastMessage("Damage", "your data");
 
         // send message to Coroutine with specified component on the target gameObject - no param 
-        MessageManager.Instance.StartCoroutine(_target.GetComponent<TargetAgent>(), "MyCoroutin");
+        MessageManager.Instance.StartCoroutine(_target.GetComponent<TargetAgent>(), "MyCoroutine");
 
         // send message to Coroutine with specified component on the target gameObject - 1 param 
-        MessageManager.Instance.StartCoroutine(_target.GetComponent<TargetAgent>(), "MyCoroutin", 5);
+        MessageManager.Instance.StartCoroutine(_target.GetComponent<TargetAgent>(), "MyCoroutine", 5);
 
         // send message to Coroutine on the target gameObject - no param 
-        MessageManager.Instance.StartCoroutine(_target, "MyCoroutin");
+        MessageManager.Instance.StartCoroutine(_target, "MyCoroutine");
 
         // send message to Coroutine on the target gameObject - 1 param
-        MessageManager.Instance.StartCoroutine(_target, "MyCoroutin", 255);
+        MessageManager.Instance.StartCoroutine(_target, "MyCoroutine", 255);
 
         // stop Coroutine on the target gameObject
-        MessageManager.Instance.StopCoroutine(_target, "MyCoroutin");
+        MessageManager.Instance.StopCoroutine(_target, "MyCoroutine");
 
         // send message to Coroutine no param - send to the gameobject component
-        MessageManager.Instance.StartCoroutine(_target.transform, "MyCoroutin");
+        MessageManager.Instance.StartCoroutine(_target.transform, "MyCoroutine");
 
         // send message to Coroutine 1 param - send to the gameobject component
-        MessageManager.Instance.StartCoroutine(_target.transform, "MyCoroutin", "Run Coroutine");
+        MessageManager.Instance.StartCoroutine(_target.transform, "MyCoroutine", "Run Coroutine");
     }
 }

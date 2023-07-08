@@ -27,23 +27,23 @@ public class TargetAgent : MonoBehaviour
 
     //--------------------
 
-    IEnumerator MyCoroutin()
+    IEnumerator MyCoroutine()
     {
         Debug.Log("Start simple coroutin ");
 
         yield return null;
     }
 
-    IEnumerator MyCoroutin(string data)
+    IEnumerator MyCoroutine(string data)
     {
-        Debug.Log("Start simple coroutin (string) " + data.ToString());
+        Debug.Log("Start simple coroutine (string) " + data.ToString());
 
         yield return null;
     }
 
-    IEnumerator MyCoroutin(int data)
+    IEnumerator MyCoroutine(int data)
     {
-        Debug.Log("Start simple coroutin (int) " + data.ToString());
+        Debug.Log("Start simple coroutine (int) " + data.ToString());
 
         yield return null;
     }
