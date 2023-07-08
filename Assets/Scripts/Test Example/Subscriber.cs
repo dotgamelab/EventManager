@@ -67,14 +67,14 @@ public class Subscriber : MonoBehaviour
 
     IEnumerator OnSubscribedMyCoroutin()
     {
-        Debug.Log("Subscribe Event - Start coroutine 0 param");
+        Debug.Log("Subscribed Event function - Start coroutine with 0 param");
 
         yield return null;
     }
 
     IEnumerator OnSubscribedMyCoroutin(object data)
     {
-        Debug.Log("Subscribe Event - Start coroutine " + data.ToString());
+        Debug.Log("Subscribed Event function - Start coroutine " + data.ToString());
 
         yield return null;
     }
