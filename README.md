@@ -44,3 +44,8 @@ Send Message to a GameObject Example
  // send message to Coroutine on the target gameObject - no param 
  MessageManager.Instance.StartCoroutine(_target, "MyCoroutin");
 ```
+BroadCast Message Example :
+```cs
+  // broadcast message to all GameObjects in the scene - Generic version - automaticlly detect proper type as data value
+    MessageManager.Instance.BroadCastMessage("Damage", " your data ");
+```
