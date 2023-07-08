@@ -29,6 +29,7 @@ An Event Manager system for unity game projects based on C# events and Reflectio
 + Publisher :
 ```cs
  EventManager.Instance.TriggerEvent("OnDoSomething");
- EventManager.Instance.TriggerEvent("OnDoSomething", " my data 1 ");
+ EventManager.Instance.TriggerEvent_StartCoroutine("OnSubscribedMyCoroutin");
+ EventManager.Instance.TriggerEvent_StartCoroutine("OnSubscribedMyCoroutin", "YourData");
 ```
 
