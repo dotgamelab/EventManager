@@ -14,4 +14,15 @@ An Event Manager system for unity game projects based on C# events and Reflectio
         EventManager.Instance.AddToListener_Coroutine_0_Param += OnSubscribedMyCoroutin;
         EventManager.Instance.AddToListener_Coroutine_1_Param += OnSubscribedMyCoroutin;
     }
+    private void OnDoSomething()
+    {
+        Debug.Log(" Subscribe Event with 0 data parameter");
+    }
+    private void OnDoSomething(object data)
+    {
+        Debug.Log(" Subscribe Event " + data.ToString());
+    }
+
 ```
+
+
