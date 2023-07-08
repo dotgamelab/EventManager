@@ -61,7 +61,7 @@ public class Publisher : MonoBehaviour
         MessageManager.Instance.BroadCastMessage("Damage", 2000.5f);
 
         // broadcast message to all GameObjects in the scene - Generic version (string) - - automaticlly detect proper type as data value
-        MessageManager.Instance.BroadCastMessage("Damage", " do damage");
+        MessageManager.Instance.BroadCastMessage("Damage", "your data");
 
         // send message to Coroutine with specified component on the target gameObject - no param 
         MessageManager.Instance.StartCoroutine(_target.GetComponent<TargetAgent>(), "MyCoroutin");
