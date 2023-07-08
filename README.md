@@ -1,7 +1,7 @@
 # Unity Game EventManager 
 An Event Manager system for unity game projects based on C# events and Reflections.
 
- + Subscriber Example :
+ + Subscriber :
 ```cs
    void OnEnable()
     {
@@ -24,6 +24,11 @@ An Event Manager system for unity game projects based on C# events and Reflectio
 
         yield return null;
     }
-```
 
+```
++ Publisher :
+```cs
+ EventManager.Instance.TriggerEvent("OnDoSomething");
+ EventManager.Instance.TriggerEvent("OnDoSomething", " my data 1 ");
+```
 
