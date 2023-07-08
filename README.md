@@ -23,6 +23,18 @@ An Event Manager system for unity game projects based on C# events and Reflectio
         Debug.Log(" Subscribe Event " + data.ToString());
     }
 
+   IEnumerator OnSubscribedMyCoroutin()
+    {
+        Debug.Log("Subscribed Event function - Start coroutine with 0 param");
+
+        yield return null;
+    }
+    IEnumerator OnSubscribedMyCoroutin(object data)
+    {
+        Debug.Log("Subscribed Event function - Start coroutine " + data.ToString());
+
+        yield return null;
+    }
 ```
 
 
