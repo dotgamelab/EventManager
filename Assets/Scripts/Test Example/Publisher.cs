@@ -54,13 +54,13 @@ public class Publisher : MonoBehaviour
         // broadcast message to all GameObjects in the scene
         MessageManager.Instance.BroadCastMessage("Damage");
 
-        // broadcast message to all GameObjects in the scene - Generic version (int) - automaticlly detect proper type as data value
+        // broadcast message to all GameObjects in the scene - Generic version (int) - automatically detect proper type as data value
         MessageManager.Instance.BroadCastMessage("Damage", 1000);
 
-        // broadcast message to all GameObjects in the scene - Generic version (float) - automaticlly detect proper type as data value
+        // broadcast message to all GameObjects in the scene - Generic version (float) - automatically detect proper type as data value
         MessageManager.Instance.BroadCastMessage("Damage", 2000.5f);
 
-        // broadcast message to all GameObjects in the scene - Generic version (string) - - automaticlly detect proper type as data value
+        // broadcast message to all GameObjects in the scene - Generic version (string) - - automatically detect proper type as data value
         MessageManager.Instance.BroadCastMessage("Damage", "your data");
 
         // send message to Coroutine with specified component on the target gameObject - no param 
