@@ -46,6 +46,6 @@ Send Message Example :
 ```
 BroadCast Message Example :
 ```cs
-  // broadcast message to all GameObjects in the scene - Generic version - automaticlly detect proper type as data value
+  // broadcast message to all GameObjects in the scene - Generic version - automatically detect proper type as data value
     MessageManager.Instance.BroadCastMessage("Damage", " your data ");
 ```
