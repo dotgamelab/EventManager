@@ -18,7 +18,7 @@ An Event Manager system for unity game projects based on C# events and Reflectio
     }
     private void OnDoSomething()
     {
-        Debug.Log(" Subscribe Event with 0 data parameter");
+        Debug.Log(" Subscribed Event function with 0 data parameter");
     }
     IEnumerator OnSubscribedMyCoroutine(object data)
     {
