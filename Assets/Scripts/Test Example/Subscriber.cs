@@ -7,7 +7,7 @@ public class Subscriber : MonoBehaviour
 {
     void OnEnable()
     {
-        // Subscribe Events
+        // Subscribe to Events
         EventManager.Instance.AddToListener_0_Param += OnDoSomething;
         EventManager.Instance.AddToListener_1_Param += OnDoSomething;
         EventManager.Instance.AddToListener_2_Param += OnDoSomething;
@@ -23,7 +23,7 @@ public class Subscriber : MonoBehaviour
     {
         if (!this.gameObject.scene.isLoaded) return;
 
-        // UnSubscribe Events
+        // UnSubscribe
 
         EventManager.Instance.AddToListener_0_Param -= OnDoSomething;
         EventManager.Instance.AddToListener_1_Param -= OnDoSomething;
@@ -36,19 +36,22 @@ public class Subscriber : MonoBehaviour
 
     private void OnDoSomething()
     {
-        Debug.Log(" Subscribe Event with 0 data parameter");
+        Debug.Log("Subscribed Event function with 0 data parameter");
     }
+
     private void OnDoSomething(object data)
     {
-        Debug.Log(" Subscribe Event " + data.ToString());
+        Debug.Log("Subscribed Event function with 1 data parameter " + data.ToString());
     }
+
     private void OnDoSomething(object data1, object data2)
     {
-        Debug.Log(" Subscribe Event " + data1.ToString() + data2.ToString());
+        Debug.Log("Subscribed Event function with 2 data parameter " + data1.ToString() + data2.ToString());
     }
+
     void OnDoSomething(object data1, object data2, object data3)
     {
-        Debug.Log(" Subscribe Event " + data1.ToString() + data2.ToString() + data3.ToString());
+        Debug.Log("Subscribed Event function with 3 data parameter " + data1.ToString() + data2.ToString() + data3.ToString());
     }
 
     void OnDoSomething(object data1, object data2, object data3, object data4)
@@ -56,14 +59,8 @@ public class Subscriber : MonoBehaviour
         // Cast data arg to proper enums type
         PlayerState playerState = (PlayerState)data4;
 
-        Debug.Log(" Subscribe Event " + data1.ToString() + data2.ToString() + data3.ToString() + playerState);
+        Debug.Log("Subscribed Event function with 4 data parameter " + data1.ToString() + data2.ToString() + data3.ToString() + playerState);
     }
-
-    void OnDoSomeThingDirect()
-    {
-        Debug.Log("Direct Message");
-    }
-
 
     IEnumerator OnSubscribedMyCoroutine()
     {
@@ -74,8 +71,13 @@ public class Subscriber : MonoBehaviour
 
     IEnumerator OnSubscribedMyCoroutine(object data)
     {
-        Debug.Log("Subscribed Event function - Start coroutine " + data.ToString());
+        Debug.Log("Subscribed Event function - Start coroutine with 1 param " + data.ToString());
 
         yield return null;
+    }
+
+    void OnDoSomeThingDirect()
+    {
+        Debug.Log("Direct Message");
     }
 }
